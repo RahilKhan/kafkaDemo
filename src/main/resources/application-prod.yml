@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    properties:
+      #Server host name verification is disabled by setting ssl.endpoint.identification.algorithm to an empty string
+      ssl.endpoint.identification.algorithm:
+    ssl:
+      protocol: SSL
+      trust-store-location: file:/app/store/truststore.jks
+      trust-store-password: pwd
+      key-store-location: file:/app/store/keystore.jks
+      key-store-password: pwd
+      key-password: pwd

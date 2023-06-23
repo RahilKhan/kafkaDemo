@@ -16,6 +16,7 @@ services:
       - skynet
 
   zookeeper:
+    container_name: zookeeper-beast
     image: wurstmeister/zookeeper:latest
     ports:
       - 2181:2181
@@ -24,6 +25,7 @@ services:
 
   kafka:
     image: wurstmeister/kafka:latest
+    container_name: kafka-man
     ports:
       - "9092:9092"
     links:

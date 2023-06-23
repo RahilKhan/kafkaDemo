@@ -1,0 +1,36 @@
+#SPRING PROPERTIES
+spring:
+  profiles:
+    active: local
+
+demo:
+  kafka:
+    topic: zoom_space_flight
+    loopCount: 100
+
+  #SPRING PROPERTIES
+  spring:
+    kafka:
+      bootstrap-servers: localhost:9092
+      properties:
+        #Server host name verification is disabled by setting ssl.endpoint.identification.algorithm to an empty string
+        ssl.endpoint.identification.algorithm:
+      ssl:
+        protocol: SSL
+        trust-store-location: classpath:/app/store/truststore.jks
+        trust-store-password: password
+        key-store-location: classpath:/app/store/keystore.jks
+        key-store-password: password
+        key-password: password
+      producer:
+        retries: 0
+        acks: all
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      consumer:
+        group-id: zoom-space-flight-consumer-group
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        enable-auto-commit: false
+        ack-mode: manual
